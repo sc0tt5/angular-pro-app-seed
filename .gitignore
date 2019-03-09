@@ -1,6 +1,5 @@
 # Project
 .idea
-.vscode
 
 # Node
 node_modules
@@ -24,9 +23,5 @@ $RECYCLE.BIN/
 yarn-error.log
 npm-debug.log
 
-# Build
-build
-vendor/*-manifest.json
-
-# Docs
-gh-pages
+# Cache
+.awcache
