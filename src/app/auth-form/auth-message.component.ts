@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
     `
 })
 export class AuthMessageComponent {
-    days: 7;
+    days: number = 7;
 }
