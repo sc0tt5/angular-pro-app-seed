@@ -1,8 +1,8 @@
 {
     "extends": "../tslint.json",
     "rules": {
-        "directive-selector": [true, "attribute", ["app", "auth"], "camelCase"],
-        "component-selector": [true, "element", ["app", "auth"], "kebab-case"],
+        "directive-selector": [true, "attribute", ["app", "auth", "example"], "camelCase"],
+        "component-selector": [true, "element", ["app", "auth", "example"], "kebab-case"],
         "no-inferrable-types": false
     }
 }
