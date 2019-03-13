@@ -15,7 +15,9 @@
         "lib": ["es2018", "dom"],
         "noEmitHelpers": true,
         "pretty": true,
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true
     },
     "exclude": ["node_modules"],
     "awesomeTypescriptLoaderOptions": {
