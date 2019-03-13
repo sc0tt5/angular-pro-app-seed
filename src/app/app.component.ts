@@ -13,6 +13,15 @@ import { Component } from '@angular/core';
                     credit-card
                 />
             </label>
+            <!-- tooltip directive exportAs tooltip ...see here -->
+            <!-- anything we want to control is now bound to myTooltip -->
+            <label tooltip="3 digits, back of your card" #myTooltip="tooltip">
+                Enter your security code
+                <span (mouseover)="myTooltip.show()" (mouseout)="myTooltip.hide()">
+                    (?)
+                </span>
+                <input type="text" />
+            </label>
         </div>
     `
 })
