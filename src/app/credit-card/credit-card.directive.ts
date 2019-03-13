@@ -1,4 +1,4 @@
-import { Directive, HostListener } from '@angular/core';
+import { Directive, HostBinding, HostListener } from '@angular/core';
 
 /**
  * a component is basically a directive, but it has a template
@@ -20,6 +20,12 @@ export class CreditCardDirective {
      * the host is the element that we have bound the directive to
      * in this case, the input has the directive/attribute credit-card
      */
+
+    // HostBinding allows us to bind to a particular element
+    @HostBinding('style.border')
+    border: string;
+
+    // HostListener onkeydown
     @HostListener('input', ['$event'])
     onkeydown(event: KeyboardEvent) {
         const input = event.target as HTMLInputElement;
@@ -36,5 +42,10 @@ export class CreditCardDirective {
 
         // ['1234', '1234', ...]
         input.value = numbers.join(' ');
+
+        this.border = '';
+        if (/[^\d]+/.test(trimmed)) {
+            this.border = '1px solid red';
+        }
     }
 }
