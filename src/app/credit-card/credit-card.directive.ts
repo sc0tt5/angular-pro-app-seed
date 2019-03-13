@@ -1,4 +1,4 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, HostListener } from '@angular/core';
 
 /**
  * a component is basically a directive, but it has a template
@@ -16,8 +16,25 @@ import { Directive, ElementRef } from '@angular/core';
  *
  */
 export class CreditCardDirective {
-    // inject element as type ElementRef into constructor
-    constructor(private element: ElementRef) {
-        console.log(this.element);
+    /**
+     * the host is the element that we have bound the directive to
+     * in this case, the input has the directive/attribute credit-card
+     */
+    @HostListener('input', ['$event'])
+    onkeydown(event: KeyboardEvent) {
+        const input = event.target as HTMLInputElement;
+
+        let trimmed = input.value.replace(/\s+/g, '');
+        if (trimmed.length > 16) {
+            trimmed = trimmed.substr(0, 16);
+        }
+
+        const numbers: any[] = [];
+        for (let i = 0; i < trimmed.length; i += 4) {
+            numbers.push(trimmed.substr(i, 4));
+        }
+
+        // ['1234', '1234', ...]
+        input.value = numbers.join(' ');
     }
 }
