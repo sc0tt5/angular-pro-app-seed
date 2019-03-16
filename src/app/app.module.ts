@@ -6,15 +6,8 @@ import { AppComponent } from './app.component';
 import { FileSizePipe } from './filesize.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FileSizePipe
-  ],
-  imports: [
-    BrowserModule
-  ],
-  bootstrap: [
-    AppComponent
-  ]
+    declarations: [AppComponent, FileSizePipe],
+    imports: [BrowserModule],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}
