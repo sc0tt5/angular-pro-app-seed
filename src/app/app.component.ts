@@ -18,7 +18,7 @@ import { FileSizePipe } from './filesize.pipe';
             </div>
         </div>
     `,
-    providers: [FileSizePipe]
+    providers: [FileSizePipe] // register pipe so it will be available in consructor
 })
 export class AppComponent implements OnInit {
     files: File[];
