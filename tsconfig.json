@@ -15,7 +15,7 @@
         "lib": ["es2018", "dom"],
         "noEmitHelpers": true,
         "pretty": true,
-        "strictNullChecks": true,
+        "strictNullChecks": false,
         "noUnusedLocals": true,
         "noUnusedParameters": true
     },
