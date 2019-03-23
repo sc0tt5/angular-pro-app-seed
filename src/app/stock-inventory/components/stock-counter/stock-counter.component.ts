@@ -15,15 +15,28 @@ const COUNTER_CONTROL_ACCESSOR = {
     providers: [COUNTER_CONTROL_ACCESSOR],
     styleUrls: ['./stock-counter.component.scss'],
     template: `
-        <div class="stock-counter">
+        <div class="stock-counter" [class.focused]="focus">
             <div>
-                <div>
+                <div
+                    tabindex="0"
+                    (keydown)="onKeyDown($event)"
+                    (blur)="onBlur($event)"
+                    (focus)="onFocus($event)"
+                >
                     <p>{{ value }}</p>
                     <div>
-                        <button type="button" (click)="increment()" [disabled]="value === max">
+                        <button
+                            type="button"
+                            (click)="increment()"
+                            [disabled]="value === max"
+                        >
                             +
                         </button>
-                        <button type="button" (click)="decrement()" [disabled]="value === min">
+                        <button
+                            type="button"
+                            (click)="decrement()"
+                            [disabled]="value === min"
+                        >
                             -
                         </button>
                     </div>
@@ -39,6 +52,8 @@ export class StockCounterComponent implements ControlValueAccessor {
 
     value: number = 10;
 
+    focus: boolean = false;
+
     // private methods for registerOnTouch and registerOnChange
     // we wrap them and store them internally
     // tslint:disable-next-line: ban-types
@@ -46,8 +61,7 @@ export class StockCounterComponent implements ControlValueAccessor {
     // tslint:disable-next-line: ban-types
     private onModelChange: Function;
 
-    // like when implementing ngOnInit, we have to impement the ControlValueAccessor interface <mat-chip-list class="mat-chip-list-stacked">
-
+    // like when implementing ngOnInit, we have to impement the ControlValueAccessor interface
     registerOnTouched(fn) {
         this.onTouch = fn;
     }
@@ -59,6 +73,36 @@ export class StockCounterComponent implements ControlValueAccessor {
         this.value = value || 0;
     }
 
+    // wire up arrow up/down keys
+    onKeyDown(event: KeyboardEvent) {
+        const handlers = {
+            ArrowDown: () => this.decrement(),
+            ArrowUp: () => this.increment()
+        };
+
+        if (handlers[event.code]) {
+            handlers[event.code]();
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        this.onTouch();
+    }
+
+    onBlur(event: FocusEvent) {
+        this.focus = false;
+        event.preventDefault();
+        event.stopPropagation();
+        this.onTouch();
+    }
+
+    onFocus(event: FocusEvent) {
+        this.focus = true;
+        event.preventDefault();
+        event.stopPropagation();
+        this.onTouch();
+    }
+
+    // increment and decrement buttons
     increment() {
         if (this.value < this.max) {
             this.value = this.value + this.step;
