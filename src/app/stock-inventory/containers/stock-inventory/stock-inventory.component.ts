@@ -1,6 +1,6 @@
 import { forkJoin } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormArray } from '@angular/forms';
+import { FormBuilder, FormArray, Validators } from '@angular/forms';
 
 import { StockInventoryService } from './../../services/stock-inventory.service';
 
@@ -27,7 +27,9 @@ import { Product, Item } from './../../models/product.interface';
                     (removed)="removeStock($event)"
                 ></stock-products>
 
-                <div class="stock-inventory__price">Total: {{ total | currency: 'USD':true }}</div>
+                <div class="stock-inventory__price">
+                    Total: {{ total | currency: 'USD':true }}
+                </div>
 
                 <div class="stock-inventory__buttons">
                     <button type="submit" [disabled]="form.invalid">Order stock</button>
@@ -48,8 +50,8 @@ export class StockInventoryComponent implements OnInit {
 
     form = this.fb.group({
         store: this.fb.group({
-            branch: '',
-            code: ''
+            branch: ['', Validators.required],
+            code: ['', Validators.required]
         }),
         selector: this.createStock({}),
         stock: this.fb.array([])
@@ -63,14 +65,19 @@ export class StockInventoryComponent implements OnInit {
 
         // tslint:disable-next-line: no-shadowed-variable
         forkJoin(cart, products).subscribe(([cart, products]: [Item[], Product[]]) => {
-            const myMap = products.map<[number, Product]>(product => [product.id, product]);
+            const myMap = products.map<[number, Product]>(product => [
+                product.id,
+                product
+            ]);
 
             this.productMap = new Map<number, Product>(myMap);
             this.products = products;
             cart.forEach(item => this.addStock(item));
 
             this.calculateTotal(this.form.get('stock').value);
-            this.form.get('stock').valueChanges.subscribe(value => this.calculateTotal(value));
+            this.form
+                .get('stock')
+                .valueChanges.subscribe(value => this.calculateTotal(value));
         });
     }
 
