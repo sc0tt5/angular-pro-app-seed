@@ -12,7 +12,9 @@ export class StockValidators {
         const stockItem = control.get('stock');
         const selector = control.get('selector');
 
-        if (!(stockItem && selector)) return null;
+        if (!(stockItem && selector)) {
+            return null;
+        }
 
         const exists = stockItem.value.some(
             stock => stock.product_id === parseInt(selector.value.product_id, 10)
