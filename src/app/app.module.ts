@@ -11,12 +11,7 @@ export const ROUTES: Routes = [{ path: '**', redirectTo: 'folder/inbox' }];
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        MailModule,
-        RouterModule.forRoot(ROUTES, { enableTracing: true }) // enableTracing is good for debugging
-    ],
+    imports: [BrowserModule, HttpClientModule, MailModule, RouterModule.forRoot(ROUTES)],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
