@@ -15,7 +15,7 @@ export const ROUTES: Routes = [{ path: '**', redirectTo: 'folder/inbox' }];
         BrowserModule,
         HttpClientModule,
         MailModule,
-        RouterModule.forRoot(ROUTES, { enableTracing: true })
+        RouterModule.forRoot(ROUTES, { enableTracing: true }) // enableTracing is good for debugging
     ],
     bootstrap: [AppComponent]
 })
