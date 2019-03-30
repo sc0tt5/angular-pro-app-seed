@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-root',
@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
                 <nav>
                     <a
                         [routerLink]="[
+                            '/mail',
                             { outlets: { primary: 'folder/inbox', pane: null } }
                         ]"
                         routerLinkActive="active"
@@ -20,19 +21,20 @@ import { Component, OnInit } from '@angular/core';
                     </a>
                     <a
                         [routerLink]="[
+                            '/mail',
                             { outlets: { primary: 'folder/trash', pane: null } }
                         ]"
                         routerLinkActive="active"
                     >
                         Trash
                     </a>
+                    <a [routerLink]="['/dashboard']" routerLinkActive="active">
+                        Dashboard
+                    </a>
                 </nav>
-                <mail-app></mail-app>
+                <router-outlet></router-outlet>
             </div>
         </div>
     `
 })
-export class AppComponent implements OnInit {
-    constructor() {}
-    ngOnInit() {}
-}
+export class AppComponent {}
