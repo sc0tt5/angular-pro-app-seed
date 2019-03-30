@@ -17,4 +17,11 @@ export class MailService {
             catchError((error: any) => throwError(error))
         );
     }
+
+    getMessage(id: string): Observable<Mail> {
+        return this.http.get<Mail>(`${api}/messages/${id}`).pipe(
+            map(response => response),
+            catchError((error: any) => throwError(error))
+        );
+    }
 }

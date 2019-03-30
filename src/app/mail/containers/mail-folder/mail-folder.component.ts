@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Data } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { pluck } from 'rxjs/operators';
+
+import { Mail } from '../../models/mail.interface';
 
 @Component({
     selector: 'mail-folder',
@@ -13,7 +15,7 @@ import { pluck } from 'rxjs/operators';
     `
 })
 export class MailFolderComponent {
-    messages: Observable<Data> = this.route.data.pipe(pluck('messages'));
+    messages: Observable<Mail[]> = this.route.data.pipe(pluck('messages'));
     title: Observable<string> = this.route.params.pipe(pluck('name'));
     constructor(private route: ActivatedRoute) {}
 }
