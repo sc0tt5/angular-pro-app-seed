@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { MailModule } from './mail/mail.module';
@@ -21,7 +21,7 @@ export const ROUTES: Routes = [
         HttpClientModule,
         MailModule,
         /* removed DashboardModule so it doesn't load at runtime ...we will now lazy laod */
-        RouterModule.forRoot(ROUTES)
+        RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules })
     ],
     bootstrap: [AppComponent]
 })
