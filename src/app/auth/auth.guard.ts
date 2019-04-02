@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
-import { CanLoad } from '@angular/router';
+import { CanLoad, CanActivate } from '@angular/router';
 
 import { AuthService } from './auth.service';
 
 @Injectable()
-export class AuthGuard implements CanLoad {
+export class AuthGuard implements CanLoad, CanActivate {
     constructor(private authService: AuthService) {}
+
     canLoad() {
         return this.authService.checkPermissions(); // returns observable to canLoad
+    }
+
+    canActivate() {
+        return this.authService.isLoggedIn();
     }
 }
