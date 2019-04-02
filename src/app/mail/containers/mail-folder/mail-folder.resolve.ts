@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
-import { MailService } from './../../mail.service';
-import { Mail } from './../../models/mail.interface';
-
-// this acts as middleware between component and router
+import { MailService } from '../../mail.service';
+import { Mail } from '../../models/mail.interface';
 
 @Injectable()
 export class MailFolderResolve implements Resolve<Mail[]> {
