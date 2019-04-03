@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { AuthGuard } from './../auth/auth.guard';
 import { AuthModule } from './../auth/auth.module';
 import { MailAppComponent } from './components/mail-app/mail-app.component';
 import { MailItemComponent } from './components/mail-item/mail-item.component';
 import { MailViewComponent } from './components/mail-view/mail-view.component';
+import { MailViewGuard } from './components/mail-view/mail-view.guard';
 import { MailViewResolve } from './components/mail-view/mail-view.resolve';
 import { MailFolderComponent } from './containers/mail-folder/mail-folder.component';
 import { MailFolderResolve } from './containers/mail-folder/mail-folder.resolve';
@@ -16,7 +16,7 @@ export const ROUTES: Routes = [
     {
         path: 'mail',
         component: MailAppComponent,
-        canActivateChild: [AuthGuard],
+        canActivate: [AuthGuard],
         children: [
             {
                 path: 'folder/:name',
@@ -29,6 +29,7 @@ export const ROUTES: Routes = [
                 path: 'message/:id',
                 component: MailViewComponent,
                 outlet: 'pane',
+                canDeactivate: [MailViewGuard],
                 resolve: {
                     message: MailViewResolve
                 }
@@ -45,7 +46,7 @@ export const ROUTES: Routes = [
         MailItemComponent,
         MailViewComponent
     ],
-    providers: [MailService, MailFolderResolve, MailViewResolve],
+    providers: [MailService, MailFolderResolve, MailViewResolve, MailViewGuard],
     exports: [MailAppComponent]
 })
 export class MailModule {}
