@@ -1,29 +1,19 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "baseUrl": "./",
-        "outDir": "./dist/out-tsc",
-        "sourceMap": true,
-        "declaration": false,
-        "module": "es2015",
-        "moduleResolution": "node",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "importHelpers": true,
-        "target": "es5",
-        "typeRoots": ["node_modules/@types"],
-        "lib": ["es2018", "dom"],
-        "noEmitHelpers": true,
-        "pretty": true,
-        "strictNullChecks": false,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true
-    },
-    "exclude": ["node_modules"],
-    "awesomeTypescriptLoaderOptions": {
-        "useWebpackText": true,
-        "forkChecker": true,
-        "useCache": true
-    },
-    "buildOnSave": false
+  "angularCompilerOptions": {
+    "entryModule": "app/app.module#AppModule",
+    "genDir": "./ngfactory"
+  },
+  "compilerOptions": {
+    "importHelpers": true,
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmitHelpers": true,
+    "pretty": true,
+    "sourceMap": true,
+    "lib": ["es5", "es2015", "dom"],
+    "strictNullChecks": false
+  }
 }
