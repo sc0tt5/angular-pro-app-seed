@@ -1,9 +1,7 @@
 import { FileSizePipe } from './file-size.pipe';
 
 describe('FileSizePipe', () => {
-
   describe('Isolate FileSizePipe test', () => {
-    
     const pipe = new FileSizePipe();
 
     it('should convert bytes to megabytes', () => {
@@ -21,5 +19,4 @@ describe('FileSizePipe', () => {
       expect(pipe.transform(987654321, 'anotherExt')).toBe('941.90anotherExt');
     });
   });
-
 });
