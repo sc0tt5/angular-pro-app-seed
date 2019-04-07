@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'stock-counter',
@@ -6,11 +6,12 @@ import { Component, Input, ChangeDetectionStrategy, EventEmitter, Output } from 
   template: `
     <div class="stock-counter">
       <div>
-        <div 
+        <div
           (keydown)="onKeyUp($event)"
           (blur)="onBlur($event)"
           (focus)="onFocus($event)"
-          tabindex="0">
+          tabindex="0"
+        >
           <p>{{ value }}</p>
           <div tabindex="-1">
             <button type="button" tabindex="-1" (click)="increment()" [disabled]="value === max">
@@ -73,5 +74,4 @@ export class StockCounterComponent {
     event.preventDefault();
     event.stopPropagation();
   }
-
 }
