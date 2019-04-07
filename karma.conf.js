@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 
-module.exports = (config) => {
+module.exports = config => {
   config.set({
     browsers: ['Chrome'],
     files: [
@@ -21,6 +21,7 @@ module.exports = (config) => {
     },
     reporters: ['spec'],
     webpack: {
+      mode: 'development',
       context: __dirname,
       devtool: 'sourcemap',
       module: {
