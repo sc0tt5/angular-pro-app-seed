@@ -1,27 +1,28 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Http, Response, URLSearchParams } from '@angular/http';
 
-import { Item, Product } from './../models/product.interface';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
-export const api = 'http://localhost:3000';
+import { Product, Item } from '../models/product.interface';
 
 @Injectable()
 export class StockInventoryService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: Http) {}
 
   getCartItems(): Observable<Item[]> {
-    return this.http.get<Item[]>(`${api}/cart`).pipe(
-      map(response => response),
-      catchError((error: any) => throwError(error))
-    );
+    return this.http
+      .get('/api/cart')
+      .map((response: Response) => response.json())
+      .catch((error: any) => Observable.throw(error.json()));
   }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${api}/products`).pipe(
-      map(response => response),
-      catchError((error: any) => throwError(error))
-    );
+    return this.http
+      .get('/api/products')
+      .map((response: Response) => response.json())
+      .catch((error: any) => Observable.throw(error.json()));
   }
 }

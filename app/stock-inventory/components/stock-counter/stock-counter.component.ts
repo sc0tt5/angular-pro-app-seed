@@ -1,8 +1,15 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+
+const COUNTER_CONTROL_ACCESSOR = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => StockCounterComponent),
+  multi: true
+};
 
 @Component({
   selector: 'stock-counter',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['stock-counter.component.scss'],
   template: `
     <div class="stock-counter">
       <div>
@@ -24,39 +31,58 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
         </div>
       </div>
     </div>
-  `
+  `,
+  providers: [COUNTER_CONTROL_ACCESSOR]
 })
-export class StockCounterComponent {
+export class StockCounterComponent implements ControlValueAccessor {
   @Input() step: number = 1;
-  @Input() min: number = 0;
+  @Input() min: number = 10;
   @Input() max: number = 100;
-
-  @Output() changed = new EventEmitter<number>();
 
   value: number = 0;
   focused: boolean;
 
+  private onTouch: Function;
+  private onModelChange: Function;
+
+  private onChange(value: number) {
+    this.value = value;
+    this.onModelChange(value);
+  }
+
+  registerOnChange(fn: Function) {
+    this.onModelChange = fn;
+  }
+
+  registerOnTouched(fn: Function) {
+    this.onTouch = fn;
+  }
+
+  writeValue(value: number) {
+    this.value = value || 0;
+  }
+
   increment() {
     if (this.value < this.max) {
-      this.value = this.value + this.step;
-      this.changed.emit(this.value);
+      this.onChange(this.value + this.step);
     }
+    this.onTouch();
   }
 
   decrement() {
     if (this.value > this.min) {
-      this.value = this.value - this.step;
-      this.changed.emit(this.value);
+      this.onChange(this.value - this.step);
     }
+    this.onTouch();
   }
 
-  private onBlur(event: FocusEvent) {
+  onBlur(event: FocusEvent) {
     this.focused = false;
     event.preventDefault();
     event.stopPropagation();
   }
 
-  private onKeyUp(event: KeyboardEvent) {
+  onKeyUp(event: KeyboardEvent) {
     let handlers = {
       ArrowDown: () => this.decrement(),
       ArrowUp: () => this.increment()
@@ -69,7 +95,7 @@ export class StockCounterComponent {
     }
   }
 
-  private onFocus(event: FocusEvent) {
+  onFocus(event: FocusEvent) {
     this.focused = true;
     event.preventDefault();
     event.stopPropagation();
