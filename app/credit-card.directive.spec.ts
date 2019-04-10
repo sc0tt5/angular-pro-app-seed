@@ -33,9 +33,9 @@ describe('CreditCardDirective', () => {
   });
 
   it('should format the string with spaces', () => {
-    const directive = el.query(By.directive(CreditCardDirective)).nativeElement;
-    directive.value = '475123';
-    directive.dispatchEvent(new Event('input'));
+    const directive = el.query(By.directive(CreditCardDirective)).nativeElement; // use by.directive to access nativeElement
+    directive.value = '475123'; // set the value to be something different
+    directive.dispatchEvent(new Event('input')); // do this to simulate the user typing into input
     expect(directive.value).toBe('4751 23');
     directive.value = '4751239812019201';
     directive.dispatchEvent(new Event('input'));
