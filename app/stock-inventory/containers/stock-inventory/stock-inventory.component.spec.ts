@@ -1,33 +1,27 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
-import { DebugElement } from '@angular/core';
-
-import { ReactiveFormsModule } from '@angular/forms';
-
-import { StockInventoryComponent } from './stock-inventory.component';
+import { of } from 'rxjs';
+import 'rxjs/add/observable/of';
 import { StockBranchComponent } from '../../components/stock-branch/stock-branch.component';
 import { StockCounterComponent } from '../../components/stock-counter/stock-counter.component';
 import { StockProductsComponent } from '../../components/stock-products/stock-products.component';
 import { StockSelectorComponent } from '../../components/stock-selector/stock-selector.component';
 import { StockInventoryService } from '../../services/stock-inventory.service';
-
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
+import { StockInventoryComponent } from './stock-inventory.component';
 
 TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
 
 class MockStockInventoryService {
   getProducts() {
-    return Observable.of([
-      { id: 1, price: 10, name: 'Test' },
-      { id: 2, price: 100, name: 'Another test' }
-    ]);
+    return of([{ id: 1, price: 10, name: 'Test' }, { id: 2, price: 100, name: 'Another test' }]);
   }
   getCartItems() {
-    return Observable.of([{ product_id: 1, quantity: 10 }, { product_id: 2, quantity: 5 }]);
+    return of([{ product_id: 1, quantity: 10 }, { product_id: 2, quantity: 5 }]);
   }
 }
 

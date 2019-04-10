@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormArray, FormGroup } from '@angular/forms';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/forkJoin';
+import { Observable, forkJoin } from 'rxjs';
 
 import { Product, Item } from '../../models/product.interface';
 
@@ -53,7 +52,7 @@ export class StockInventoryComponent implements OnInit {
     const cart = this.stockService.getCartItems();
     const products = this.stockService.getProducts();
 
-    Observable.forkJoin(cart, products).subscribe(([cart, products]: [Item[], Product[]]) => {
+    forkJoin(cart, products).subscribe(([cart, products]: [Item[], Product[]]) => {
       const mapInfo = products.map<[number, Product]>(product => [product.id, product]);
       this.products = products;
       this.productsMap = new Map<number, Product>(mapInfo);
