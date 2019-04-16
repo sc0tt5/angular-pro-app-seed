@@ -5,9 +5,15 @@ import { catchError, map } from 'rxjs/operators';
 
 @Injectable()
 export class FoodService {
+    api: string;
     // to inject a provider that we declared in app.module
-    constructor(private http: HttpClient, private api: string) {
+    constructor(private http: HttpClient, private apiPath: string) {
+        this.setApiUrl(apiPath);
         console.log(this.api);
+    }
+
+    setApiUrl(apiPath: string) {
+        this.api = `http://localhost:3000/${apiPath}`;
     }
 
     getFood(): Observable<any[]> {

@@ -9,7 +9,7 @@ interface Side {
 }
 
 export function SideFactory(http: HttpClient) {
-    return new FoodService(http, 'http://localhost:3000/sides');
+    return new FoodService(http, 'sides');
 }
 
 @Component({

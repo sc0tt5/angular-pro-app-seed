@@ -9,7 +9,7 @@ interface Pizza {
 }
 
 export function PizzaFactory(http: HttpClient) {
-    return new FoodService(http, 'http://localhost:3000/pizzas');
+    return new FoodService(http, 'pizzas');
 }
 
 @Component({
