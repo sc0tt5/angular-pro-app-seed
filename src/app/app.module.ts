@@ -16,6 +16,6 @@ import { SideViewerComponent } from './containers/side-viewer.component';
     ],
     imports: [BrowserModule, HttpClientModule],
     bootstrap: [AppComponent],
-    providers: [{ provide: 'api', useValue: '/api/pizzas' }]
+    providers: [{ provide: 'api', useValue: 'http://localhost:3000/pizzas' }]
 })
 export class AppModule {}
