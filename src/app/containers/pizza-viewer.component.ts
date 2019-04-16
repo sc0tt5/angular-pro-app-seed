@@ -13,7 +13,7 @@ interface Pizza {
     template: `
         <div>
             <div *ngFor="let item of (items$ | async)">
-                {{ item.name }} {{ item.price | currency: 'USD':true }}
+                {{ item.name }} {{ item.price | currency: 'USD':'symbol' }}
             </div>
         </div>
     `
