@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FoodService } from '../food.service';
@@ -7,9 +8,19 @@ interface Pizza {
     price: number;
 }
 
+export function PizzaFactory(http: HttpClient) {
+    return new FoodService(http, 'http://localhost:3000/pizzas');
+}
+
 @Component({
     selector: 'pizza-viewer',
-    providers: [FoodService],
+    providers: [
+        {
+            provide: FoodService,
+            useFactory: PizzaFactory,
+            deps: [HttpClient]
+        }
+    ],
     template: `
         <div>
             <div *ngFor="let item of (items$ | async)">
