@@ -9,7 +9,7 @@ interface Drink {
 
 @Component({
     selector: 'drink-viewer',
-    providers: [FoodService],
+    providers: [{ provide: FoodService, useClass: FoodService }],
     template: `
         <div>
             <div *ngFor="let item of (items$ | async)">
