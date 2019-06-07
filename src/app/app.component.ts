@@ -2,7 +2,17 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-root',
-    styleUrls: ['app.component.scss'],
+    styles: [
+        `
+            pizza-viewer,
+            side-viewer,
+            drink-viewer {
+                display: block;
+                border-bottom: 2px solid #eee;
+                padding: 20px 0;
+            }
+        `
+    ],
     template: `
         <div>
             <pizza-viewer></pizza-viewer>
