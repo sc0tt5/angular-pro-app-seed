@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { Store } from '../../../store';
 
 @Component({
@@ -19,6 +20,9 @@ export class SongsFavouritesComponent implements OnInit {
     constructor(private store: Store) {}
 
     ngOnInit() {
-        this.favourites$ = this.store.select('playlist');
+        this.favourites$ = this.store.select('playlist').pipe(
+            filter(Boolean), // only run this if there is data
+            map(playlist => playlist.filter(track => track.favourite))
+        );
     }
 }
