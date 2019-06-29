@@ -13,10 +13,31 @@ export interface Song {
 }
 @Injectable()
 export class SongsService {
-    getPlaylist$ = this.http.get<Song[]>('http://localhost:3000/playlist').pipe(
+    api = 'http://localhost:3000/playlist';
+
+    getPlaylist$ = this.http.get<Song[]>(this.api).pipe(
         map(res => res),
         tap(next => this.store.set('playlist', next))
     );
 
     constructor(private http: HttpClient, private store: Store) {}
+
+    toggle(event: any) {
+        this.http
+            .put<Song>(`${this.api}/${event.track.id}`, event.track)
+            .pipe(map(res => res))
+            .subscribe(() => {
+                const value = this.store.value.playlist;
+
+                const playlist = value.map((song: Song) => {
+                    if (event.track.id === song.id) {
+                        return { ...song, ...event.track };
+                    } else {
+                        return song;
+                    }
+                });
+
+                this.store.set('playlist', playlist);
+            });
+    }
 }

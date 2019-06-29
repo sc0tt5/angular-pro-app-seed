@@ -10,7 +10,7 @@
   "author": "Ultimate Angular",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"json-server -w db.json\" \"ng serve --open\"",
+    "start": "concurrently \"json-server -w db.json\" \"ng serve --open --watch\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
