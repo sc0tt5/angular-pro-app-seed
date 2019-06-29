@@ -7,10 +7,8 @@ import { SongsService } from '../../services/songs.service';
     selector: 'songs-playlist',
     template: `
         <div class="songs">
-            <div *ngFor="let item of playlist$ | async">
-                {{ item.artist }}
-                {{ item.track }}
-            </div>
+            <!-- ng-content will render "Playlist" (similar to transclude in ng1) -->
+            <songs-list [list]="playlist$ | async">Playlist</songs-list>
         </div>
     `
 })
