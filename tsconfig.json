@@ -14,6 +14,9 @@
         "typeRoots": ["node_modules/@types"],
         "lib": ["es2018", "dom"],
         "noEmitHelpers": true,
+        "paths": {
+            "store": ["src/app/store.ts"]
+        },
         "pretty": true,
         "strictNullChecks": false,
         "noUnusedLocals": true,

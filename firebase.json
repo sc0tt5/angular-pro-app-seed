@@ -1,0 +1,35 @@
+{
+    "database": {
+        "rules": "database.rules.json"
+    },
+    "hosting": {
+        "public": "",
+        "ignore": [
+            "firebase.json",
+            ".firebaserc",
+            ".vscode",
+            ".git",
+            ".gitignore",
+            ".editorconfig",
+            "src/**/.*",
+            ".prettierignore",
+            ".prettierrc",
+            "angular.json",
+            "database.rules.json",
+            "package-lock.json",
+            "package.json",
+            "README.md",
+            "tsconfig.json",
+            "tslint.json",
+            "webpack.config.js",
+            "yarn.lock",
+            "**/node_modules/**"
+        ],
+        "rewrites": [
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
+        ]
+    }
+}
