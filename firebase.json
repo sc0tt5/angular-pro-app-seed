@@ -3,7 +3,7 @@
         "rules": "database.rules.json"
     },
     "hosting": {
-        "public": "",
+        "public": "dist/angular-pro-app-seed",
         "ignore": [
             "firebase.json",
             ".firebaserc",
@@ -23,6 +23,7 @@
             "tslint.json",
             "webpack.config.js",
             "yarn.lock",
+            "**/.*",
             "**/node_modules/**"
         ],
         "rewrites": [
