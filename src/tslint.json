@@ -4,13 +4,13 @@
         "directive-selector": [
             false,
             "attribute",
-            ["app", "auth", "example", "credit", "stock"],
+            ["app", "auth", "example", "credit", "stock", "register"],
             "kebab-case"
         ],
         "component-selector": [
             true,
             "element",
-            ["app", "auth", "example", "credit", "stock"],
+            ["app", "auth", "example", "credit", "stock", "register"],
             "kebab-case"
         ],
         "no-inferrable-types": false
