@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     template: `
         <div class="auth-form">
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <!-- content projection, like transculde in ng1, allows passing content here -->
                 <ng-content select="h1"></ng-content>
 
                 <label>

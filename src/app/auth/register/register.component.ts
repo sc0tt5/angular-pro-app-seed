@@ -6,6 +6,7 @@ import { FormGroup } from '@angular/forms';
     template: `
         <div>
             <auth-form (submitted)="registerUser($event)">
+                <!-- content projection -- h1, a, and button -->
                 <h1>Register</h1>
                 <a routerLink="/auth/login">Already have an account?</a>
                 <button type="submit">
