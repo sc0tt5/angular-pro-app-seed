@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+// presentational component
 @Component({
     selector: 'auth-form',
     styleUrls: ['auth-form.component.scss'],
@@ -11,11 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
                 <ng-content select="h1"></ng-content>
 
                 <label>
-                    <input
-                        type="email"
-                        placeholder="Email address"
-                        formControlName="email"
-                    />
+                    <input type="email" placeholder="Email address" formControlName="email" />
                 </label>
                 <label>
                     <input
