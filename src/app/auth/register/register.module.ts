@@ -7,7 +7,7 @@ import { RegisterComponent } from './register.component';
 export const ROUTES: Routes = [{ path: '', component: RegisterComponent }];
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(ROUTES), SharedModule],
+    imports: [CommonModule, RouterModule.forChild(ROUTES), SharedModule], // do not need to call forRoot, doing this in auth module
     declarations: [RegisterComponent]
 })
 export class RegisterModule {}
