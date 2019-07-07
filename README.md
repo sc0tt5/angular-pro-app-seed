@@ -6,11 +6,9 @@ Angular Pro: Final App Seed
 
 ---
 
-<a href="https://ultimateangular.com" target="_blank"><img src="https://ultimateangular.com/assets/img/banner.jpg"></a>
-
----
-
 > This repo serves as the seed project for the Ultimate Angular Pro course as well as the final solution in a separate branch, come and [learn advanced Angular](https://ultimateangular.com/courses/) architecture!
+
+> sc0tt5: Updated with [Angular 8](https://angular.io), [Firebase 6](https://firebase.google.com/), [RxJS 6](https://rxjs.dev/), [Jasmine 3](https://jasmine.github.io/), [Karma 4](https://karma-runner.github.io/latest/index.html), and [TypeScript 3.4](https://www.typescriptlang.org/)
 
 [Setup and install](#setup-and-install) |
 [Tasks](#tasks) |
