@@ -9,12 +9,13 @@ import { AppNavComponent } from './app-nav/app-nav.component';
 import { AppComponent } from './app.component';
 // feature modules
 import { AuthModule } from './auth/auth.module';
+import { HealthModule } from './health/health.module';
 
 // routes
 export const ROUTES: Routes = [];
 
 @NgModule({
-    imports: [BrowserModule, RouterModule.forRoot(ROUTES), AuthModule],
+    imports: [BrowserModule, RouterModule.forRoot(ROUTES), AuthModule, HealthModule],
     declarations: [AppComponent, AppHeaderComponent, AppNavComponent],
     providers: [Store],
     bootstrap: [AppComponent]

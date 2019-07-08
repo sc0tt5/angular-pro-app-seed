@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 // shared modules
 import { SharedModule } from './shared/shared.module';
 // firebase config (private)
-import { firebaseConfig } from '../../assets/firebaseconfig';
+import { firebaseConfig } from '../../assets/firebaseconfig'; // see FirebaseAppConfig
 
 export const ROUTES: Routes = [
     {
@@ -25,7 +25,7 @@ export const ROUTES: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(ROUTES),
-        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFireModule.initializeApp(firebaseConfig), // see FirebaseAppConfig
         AngularFireAuthModule,
         AngularFireDatabaseModule,
         SharedModule.forRoot() // forRoot to avoid a duplicate instance of AuthService (see shared module)
