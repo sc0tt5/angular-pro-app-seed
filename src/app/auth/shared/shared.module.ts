@@ -3,6 +3,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 // components
 import { AuthFormComponent } from './auth-form/auth-form.component';
+import { AuthGuard } from './guards/auth.guard';
 // services
 import { AuthService } from './services/auth.service';
 
@@ -16,7 +17,7 @@ export class SharedModule {
     static forRoot(): ModuleWithProviders {
         return {
             ngModule: SharedModule,
-            providers: [AuthService]
+            providers: [AuthService, AuthGuard]
         };
     }
 }

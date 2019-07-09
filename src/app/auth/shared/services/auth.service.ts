@@ -29,6 +29,11 @@ export class AuthService {
 
     constructor(private store: Store, private af: AngularFireAuth) {}
 
+    // helper to check if user is logged in
+    get authState() {
+        return this.af.authState;
+    }
+
     // returns a promise, so can call .then or use async await
     createUser(email: string, password: string) {
         return this.af.auth.createUserWithEmailAndPassword(email, password);
