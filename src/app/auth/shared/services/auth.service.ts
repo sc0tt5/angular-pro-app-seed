@@ -29,6 +29,10 @@ export class AuthService {
 
     constructor(private store: Store, private af: AngularFireAuth) {}
 
+    get user() {
+        return this.af.auth.currentUser;
+    }
+
     // helper to check if user is logged in
     get authState() {
         return this.af.authState;
