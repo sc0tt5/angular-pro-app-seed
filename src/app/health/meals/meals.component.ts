@@ -3,6 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 import { Store } from 'store';
 import { Meal, MealsService } from '../shared/services/meals.service';
 
+// container component (smart component)
 @Component({
     selector: 'health-meals',
     styleUrls: ['meals.component.scss'],

@@ -16,9 +16,9 @@ export interface Meal {
 @Injectable()
 export class MealsService {
     meals$: Observable<Meal[]> = this.db
-        .list(`meals/${this.uid}`)
-        .valueChanges() // TODO: fix for Fire 5+ .........stopped 7:30 Data layer, initiate Observable streams
-        .pipe(tap((next: Meal[]) => this.store.set('meals', next)));
+        .list<Meal>(`meals/${this.uid}`)
+        .valueChanges()
+        .pipe(tap(next => this.store.set('meals', next)));
 
     constructor(
         private store: Store,
