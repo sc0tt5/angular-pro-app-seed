@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 // containers
-import { ScheduleComponent } from './schedule.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 export const ROUTES: Routes = [{ path: '', component: ScheduleComponent }];
 

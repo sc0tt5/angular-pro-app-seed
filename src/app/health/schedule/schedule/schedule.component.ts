@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 
 // container component (smart component)
 @Component({
-    selector: 'health-workouts',
-    styleUrls: ['workouts.component.scss'],
+    selector: 'app-schedule',
+    styleUrls: ['schedule.component.scss'],
     template: `
         <div>
-            Workouts
+            Schedule
         </div>
     `
 })
-export class WorkoutsComponent {
+export class ScheduleComponent {
     constructor() {}
 }

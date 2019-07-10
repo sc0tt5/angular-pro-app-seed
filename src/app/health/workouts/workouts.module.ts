@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 // containers
-import { WorkoutsComponent } from './workouts.component';
+import { WorkoutsComponent } from './workouts/workouts.component';
 
 export const ROUTES: Routes = [{ path: '', component: WorkoutsComponent }];
 

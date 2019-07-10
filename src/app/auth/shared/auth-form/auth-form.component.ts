@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-// presentational component
+// stateless component
 @Component({
     selector: 'auth-form',
     styleUrls: ['auth-form.component.scss'],

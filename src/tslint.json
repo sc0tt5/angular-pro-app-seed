@@ -1,8 +1,18 @@
 {
     "extends": "../tslint.json",
     "rules": {
-        "directive-selector": [false, "attribute", ["app", "auth", "health"], "kebab-case"],
-        "component-selector": [true, "element", ["app", "auth", "health"], "kebab-case"],
+        "directive-selector": [
+            false,
+            "attribute",
+            ["app", "auth", "health", "meal", "meals", "schedule", "workouts"],
+            "kebab-case"
+        ],
+        "component-selector": [
+            true,
+            "element",
+            ["app", "auth", "health", "meal", "meals", "schedule", "workouts"],
+            "kebab-case"
+        ],
         "no-inferrable-types": false
     }
 }
