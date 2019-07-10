@@ -22,12 +22,12 @@ export class MealsService {
             tap((payload: any) => {
                 const mealsArray = [];
 
-                payload.forEach(result => {
-                    const data = result.payload.val();
+                payload.forEach(p => {
+                    const data = p.payload.val();
                     mealsArray.push({
                         name: data.name,
                         ingredients: data.ingredients,
-                        $key: result.payload.key
+                        $key: p.payload.key
                     });
                 });
 
