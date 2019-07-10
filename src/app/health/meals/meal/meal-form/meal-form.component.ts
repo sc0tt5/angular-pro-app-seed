@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
 import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Meal } from '../../../shared/services/meals.service';
 
-// stateless component
+// stateless component (presentational component)
 @Component({
     selector: 'health-meal-form',
     changeDetection: ChangeDetectionStrategy.OnPush,
