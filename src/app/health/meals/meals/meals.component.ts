@@ -5,7 +5,7 @@ import { Meal, MealsService } from '../../shared/services/meals.service';
 
 // container component (smart component)
 @Component({
-    selector: 'app-meals',
+    selector: 'health-meals',
     styleUrls: ['meals.component.scss'],
     template: `
         <div class="meals">

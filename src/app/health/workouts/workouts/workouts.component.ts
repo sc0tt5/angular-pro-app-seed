@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 // container component (smart component)
 @Component({
-    selector: 'app-workouts',
+    selector: 'health-workouts',
     styleUrls: ['workouts.component.scss'],
     template: `
         <div>

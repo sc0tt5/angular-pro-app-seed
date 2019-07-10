@@ -4,7 +4,7 @@ import { Meal } from '../../../shared/services/meals.service';
 
 // stateless component
 @Component({
-    selector: 'app-meal-form',
+    selector: 'health-meal-form',
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['meal-form.component.scss'],
     template: `

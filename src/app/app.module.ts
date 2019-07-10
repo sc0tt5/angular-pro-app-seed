@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { Store } from 'store';
 // presentational components
-import { AppHeaderComponent } from './app-header/app-header.component';
-import { AppNavComponent } from './app-nav/app-nav.component';
+import { AppHeaderComponent } from './shared/app-header/app-header.component';
+import { AppNavComponent } from './shared/app-nav/app-nav.component';
 // container components
 import { AppComponent } from './app.component';
 // feature modules

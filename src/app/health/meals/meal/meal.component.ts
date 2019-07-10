@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Meal } from '../../shared/services/meals.service';
 
 @Component({
-    selector: 'app-meal',
+    selector: 'health-meal',
     styleUrls: ['meal.component.scss'],
     template: `
         <div class="meal">
@@ -13,7 +13,7 @@ import { Meal } from '../../shared/services/meals.service';
                 </h1>
             </div>
             <div>
-                <app-meal-form (create)="addMeal($event)"> </app-meal-form>
+                <health-meal-form (create)="addMeal($event)"> </health-meal-form>
             </div>
         </div>
     `
