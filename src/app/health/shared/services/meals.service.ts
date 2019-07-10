@@ -16,9 +16,24 @@ export interface Meal {
 @Injectable()
 export class MealsService {
     meals$: Observable<Meal[]> = this.db
-        .list<Meal>(`meals/${this.uid}`)
-        .valueChanges()
-        .pipe(tap(next => this.store.set('meals', next)));
+        .list(`meals/${this.uid}`)
+        .snapshotChanges()
+        .pipe(
+            tap((payload: any) => {
+                const mealsArray = [];
+
+                payload.forEach(result => {
+                    const data = result.payload.val();
+                    mealsArray.push({
+                        name: data.name,
+                        ingredients: data.ingredients,
+                        $key: result.payload.key
+                    });
+                });
+
+                this.store.set('meals', mealsArray);
+            })
+        );
 
     constructor(
         private store: Store,
