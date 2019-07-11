@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { filter, map, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/shared/services/auth.service';
 import { Store } from 'store';
 
@@ -43,6 +43,16 @@ export class MealsService {
 
     get uid() {
         return this.authService.user.uid;
+    }
+
+    getMeal(key: string) {
+        if (!key) {
+            return of({});
+        }
+        return this.store.select<Meal[]>('meals').pipe(
+            filter(Boolean),
+            map(meals => meals.find((meal: Meal) => meal.$key === key))
+        );
     }
 
     addMeal(meal: Meal) {

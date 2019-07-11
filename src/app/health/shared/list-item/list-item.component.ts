@@ -52,7 +52,6 @@ export class ListItemComponent {
     }
 
     getRoute(item: any) {
-        console.log(item);
         return [`../meals`, item.$key];
     }
 }
