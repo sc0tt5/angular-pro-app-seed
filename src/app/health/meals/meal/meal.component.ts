@@ -70,7 +70,7 @@ export class MealComponent implements OnInit, OnDestroy {
         this.backToMeals();
     }
 
-    async removeMeal(event: Meal) {
+    async removeMeal() {
         const key = this.route.snapshot.params.id;
         await this.mealsService.removeMeal(key);
         this.backToMeals();

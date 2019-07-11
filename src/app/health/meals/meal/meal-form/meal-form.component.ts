@@ -4,8 +4,7 @@ import {
     EventEmitter,
     Input,
     OnChanges,
-    Output,
-    SimpleChanges
+    Output
 } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Meal } from '../../../shared/services/meals.service';
@@ -36,7 +35,7 @@ import { Meal } from '../../../shared/services/meals.service';
                     <div class="meal-form__subtitle">
                         <h3>Food</h3>
                         <button type="button" class="meal-form__add" (click)="addIngredient()">
-                            <img src="/img/add-white.svg" />
+                            <img src="/assets/img/add-white.svg" />
                             Add food
                         </button>
                     </div>
@@ -104,7 +103,7 @@ export class MealFormComponent implements OnChanges {
 
     constructor(private fb: FormBuilder) {}
 
-    ngOnChanges(changes: SimpleChanges) {
+    ngOnChanges() {
         if (this.meal && this.meal.name) {
             this.exists = true;
             this.emptyIngredients();
