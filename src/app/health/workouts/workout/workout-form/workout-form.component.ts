@@ -19,14 +19,14 @@ import { Workout } from 'src/app/health/shared/services/workouts.service';
                 <div class="workout-form__name">
                     <label>
                         <h3>Workout name</h3>
-                        <input
-                            type="text"
-                            placeholder="e.g. English Breakfast"
-                            formControlName="name"
-                        />
+                        <input type="text" placeholder="e.g. Benchpress" formControlName="name" />
                         <div class="error" *ngIf="required">
                             Workout name is required
                         </div>
+                    </label>
+                    <label>
+                        <h3>Type</h3>
+                        <health-workout-type formControlName="type"> </health-workout-type>
                     </label>
                 </div>
 

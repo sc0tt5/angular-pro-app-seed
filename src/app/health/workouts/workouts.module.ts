@@ -8,6 +8,7 @@ import { WorkoutFormComponent } from './workout/workout-form/workout-form.compon
 // containers
 import { WorkoutComponent } from './workout/workout.component';
 import { WorkoutsComponent } from './workouts/workouts.component';
+import { WorkoutTypeComponent } from './workout/workout-form/workout-type/workout-type.component';
 
 export const ROUTES: Routes = [
     { path: '', component: WorkoutsComponent },
@@ -17,6 +18,6 @@ export const ROUTES: Routes = [
 
 @NgModule({
     imports: [CommonModule, ReactiveFormsModule, RouterModule.forChild(ROUTES), SharedModule],
-    declarations: [WorkoutsComponent, WorkoutComponent, WorkoutFormComponent]
+    declarations: [WorkoutsComponent, WorkoutComponent, WorkoutFormComponent, WorkoutTypeComponent]
 })
 export class WorkoutsModule {}
