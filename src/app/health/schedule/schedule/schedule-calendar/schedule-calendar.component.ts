@@ -21,6 +21,7 @@ import { ScheduleItem, ScheduleList } from 'src/app/health/shared/services/sched
                 *ngFor="let section of sections"
                 [name]="section.name"
                 [section]="getSection(section.key)"
+                (select)="selectSection($event, section.key)"
             >
             </health-schedule-section>
         </div>
@@ -49,6 +50,9 @@ export class ScheduleCalendarComponent implements OnChanges {
     @Output()
     change = new EventEmitter<Date>();
 
+    @Output()
+    select = new EventEmitter<any>();
+
     constructor() {}
 
     ngOnChanges() {
@@ -58,6 +62,18 @@ export class ScheduleCalendarComponent implements OnChanges {
 
     getSection(name: string): ScheduleItem {
         return (this.items && this.items[name]) || {};
+    }
+
+    selectSection({ type, assigned, data }: any, section: string) {
+        const day = this.selectedDay;
+        // what the user clicked on, the day, etc.
+        this.select.emit({
+            type,
+            assigned,
+            section,
+            day,
+            data
+        });
     }
 
     selectDay(index: number) {

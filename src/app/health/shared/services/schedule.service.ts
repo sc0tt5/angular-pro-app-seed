@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { ScheduleList } from 'src/app/health/shared/services/schedule.service';
 import { Store } from 'store';
@@ -29,6 +29,10 @@ export class ScheduleService {
     // BehaviorSubject allows to initialize date$ with some data, could be any data
     // you can pass new values to it AND it's an Observable
     private date$ = new BehaviorSubject(new Date());
+    private section$ = new Subject();
+
+    // add what user select to store
+    selected$ = this.section$.pipe(tap((next: any) => this.store.set('selected', next)));
 
     // set date for schedule
     schedule$: Observable<ScheduleItem[]> = this.date$.pipe(
@@ -71,6 +75,10 @@ export class ScheduleService {
         this.date$.next(date);
     }
 
+    selectSection(event: any) {
+        this.section$.next(event);
+    }
+
     private getSchedule(startAt: number, endAt: number) {
         return this.db
             .list(`schedule/${this.uid}`, schedule =>
@@ -81,8 +89,5 @@ export class ScheduleService {
             )
             .valueChanges()
             .pipe(map(next => next));
-        /* .query.orderByChild('timestamp')
-        .startAt(startAt)
-        .endAt(endAt); */
     }
 }
