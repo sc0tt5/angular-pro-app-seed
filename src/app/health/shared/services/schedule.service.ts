@@ -6,6 +6,7 @@ import { Store } from 'store';
 @Injectable()
 export class ScheduleService {
     // BehaviorSubject allows to initialize date$ with some data, could be any data
+    // you can pass new values to it AND it's an Observable
     private date$ = new BehaviorSubject(new Date());
 
     // set date for schedule
@@ -14,4 +15,8 @@ export class ScheduleService {
     );
 
     constructor(private store: Store) {}
+
+    updateDate(date: Date) {
+        this.date$.next(date);
+    }
 }
