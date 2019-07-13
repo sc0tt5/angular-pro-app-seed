@@ -15,7 +15,7 @@
         "lib": ["es2018", "dom"],
         "noEmitHelpers": true,
         "paths": {
-            "store": ["src/app/store.ts"]
+            "store": ["src/app/store/store.ts"]
         },
         "pretty": true,
         "strictNullChecks": false,
