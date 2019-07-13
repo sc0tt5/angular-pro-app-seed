@@ -154,6 +154,7 @@ export class WorkoutFormComponent implements OnChanges {
 
     createWorkout() {
         if (this.form.valid) {
+            console.log(this.form.value);
             this.create.emit(this.form.value);
         }
     }
