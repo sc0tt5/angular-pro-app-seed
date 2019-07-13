@@ -28,6 +28,7 @@ export class WorkoutsService {
                     const data = p.payload.val();
                     workoutsArray.push({
                         name: data.name,
+                        type: data.type,
                         strength: data.strength,
                         endurance: data.endurance,
                         $key: p.payload.key
