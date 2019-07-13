@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-    selector: 'schedule-controls',
+    selector: 'health-schedule-controls',
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['schedule-controls.component.scss'],
     template: `

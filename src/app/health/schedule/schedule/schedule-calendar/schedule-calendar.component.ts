@@ -1,20 +1,28 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { ScheduleItem, ScheduleList } from 'src/app/health/shared/services/schedule.service';
 
 // stateless component (presentational component)
 @Component({
-    selector: 'schedule-calendar',
+    selector: 'health-schedule-calendar',
     styleUrls: ['schedule-calendar.component.scss'],
     template: `
         <div class="calendar">
-            <schedule-controls
+            <health-schedule-controls
                 [selected]="selectedDay"
                 (move)="onChange($event)"
-            ></schedule-controls>
+            ></health-schedule-controls>
 
-            <schedule-days
+            <health-schedule-days
                 [selected]="selectedDayIndex"
                 (select)="selectDay($event)"
-            ></schedule-days>
+            ></health-schedule-days>
+
+            <health-schedule-section
+                *ngFor="let section of sections"
+                [name]="section.name"
+                [section]="getSection(section.key)"
+            >
+            </health-schedule-section>
         </div>
     `
 })
@@ -23,10 +31,20 @@ export class ScheduleCalendarComponent implements OnChanges {
     selectedDayIndex: number;
     selectedWeek: Date;
 
+    sections = [
+        { key: 'morning', name: 'Morning' },
+        { key: 'lunch', name: 'Lunch' },
+        { key: 'evening', name: 'Evening' },
+        { key: 'snacks', name: 'Snacks and Drinks' }
+    ];
+
     @Input()
     set date(date: Date) {
         this.selectedDay = new Date(date.getTime());
     }
+
+    @Input()
+    items: ScheduleList;
 
     @Output()
     change = new EventEmitter<Date>();
@@ -36,6 +54,10 @@ export class ScheduleCalendarComponent implements OnChanges {
     ngOnChanges() {
         this.selectedDayIndex = this.getToday(this.selectedDay);
         this.selectedWeek = this.getStartOfWeek(new Date(this.selectedDay));
+    }
+
+    getSection(name: string): ScheduleItem {
+        return (this.items && this.items[name]) || {};
     }
 
     selectDay(index: number) {

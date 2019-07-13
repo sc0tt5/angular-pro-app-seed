@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 
 // stateless component (presentational component)
 @Component({
-    selector: 'schedule-days',
+    selector: 'health-schedule-days',
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['schedule-days.component.scss'],
     template: `
