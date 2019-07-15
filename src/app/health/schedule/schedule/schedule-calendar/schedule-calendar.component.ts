@@ -17,6 +17,7 @@ import { ScheduleItem, ScheduleList } from 'src/app/health/shared/services/sched
                 (select)="selectDay($event)"
             ></health-schedule-days>
 
+            <!-- this creates each section - morning, lunch, etc., with each sub-section for meal and workout -->
             <health-schedule-section
                 *ngFor="let section of sections"
                 [name]="section.name"

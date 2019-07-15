@@ -13,7 +13,6 @@ export interface ScheduleItem {
     workouts: Workout[];
     section: string;
     timestamp: number;
-    $key?: string;
 }
 
 export interface ScheduleList {
@@ -37,6 +36,7 @@ export class ScheduleService {
 
         map(([items, section]: any[]) => {
             const id = section.data.$key;
+            delete section.data.$key; // key cannot be in payload (special char error)
 
             const defaults: ScheduleItem = {
                 workouts: null,
@@ -131,7 +131,24 @@ export class ScheduleService {
                     .startAt(startAt)
                     .endAt(endAt)
             )
-            .valueChanges()
-            .pipe(map(next => next));
+            .snapshotChanges()
+            .pipe(
+                map((next: any) => {
+                    const scheduleArray = [];
+
+                    next.forEach(p => {
+                        const data = p.payload.val();
+                        scheduleArray.push({
+                            meals: data.meals,
+                            workouts: data.workouts,
+                            section: data.section,
+                            timestamp: data.timestamp,
+                            $key: p.payload.key
+                        });
+                    });
+
+                    return scheduleArray;
+                })
+            );
     }
 }
