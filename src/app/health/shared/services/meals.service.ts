@@ -3,15 +3,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable, of } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
 import { AuthService } from '@auth/shared/services/auth.service';
+import { Meal } from '@core/models/meal.interface';
 import { Store } from '@store/store';
-
-export interface Meal {
-    name: string;
-    ingredients: string[];
-    timestamp: number;
-    $key: string;
-    $exists: () => boolean;
-}
 
 @Injectable()
 export class MealsService {

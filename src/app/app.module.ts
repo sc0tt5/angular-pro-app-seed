@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+// feature modules
+import { AuthModule } from '@auth/auth.module';
+import { HealthModule } from '@health/health.module';
 import { Store } from '@store/store';
 // presentational components
 import { AppHeaderComponent } from '@shared/app-header/app-header.component';
 import { AppNavComponent } from '@shared/app-nav/app-nav.component';
 // container components
 import { AppComponent } from './app.component';
-// feature modules
-import { AuthModule } from '@auth/auth.module';
-import { HealthModule } from '@health/health.module';
 
 // routes
 export const ROUTES: Routes = [{ path: '', pathMatch: 'full', redirectTo: 'schedule' }];

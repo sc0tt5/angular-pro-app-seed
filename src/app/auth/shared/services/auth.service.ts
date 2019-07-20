@@ -1,13 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { tap } from 'rxjs/operators';
+import { User } from '@core/models/user.interface';
 import { Store } from '@store/store';
-
-export interface User {
-    email: string;
-    uid: string;
-    authenticated: boolean;
-}
 
 @Injectable()
 export class AuthService {

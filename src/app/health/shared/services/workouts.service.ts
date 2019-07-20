@@ -3,17 +3,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable, of } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
 import { AuthService } from '@auth/shared/services/auth.service';
+import { Workout } from '@core/models/workout.interface';
 import { Store } from '@store/store';
-
-export interface Workout {
-    name: string;
-    type: string;
-    strength: any;
-    endurance: any;
-    timestamp: number;
-    $key: string;
-    $exists: () => boolean;
-}
 
 @Injectable()
 export class WorkoutsService {

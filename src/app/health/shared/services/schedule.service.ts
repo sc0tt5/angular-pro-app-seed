@@ -2,26 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { ScheduleList } from '@health/shared/services/schedule.service';
-import { Store } from '@store/store';
 import { AuthService } from '@auth/shared/services/auth.service';
-import { Meal } from './meals.service';
-import { Workout } from './workouts.service';
-
-export interface ScheduleItem {
-    meals: Meal[];
-    workouts: Workout[];
-    section: string;
-    timestamp: number;
-}
-
-export interface ScheduleList {
-    morning?: ScheduleItem;
-    lunch?: ScheduleItem;
-    evening?: ScheduleItem;
-    snacks?: ScheduleItem;
-    [key: string]: any;
-}
+import { ScheduleItem } from '@core/models/schedule-item.interface';
+import { ScheduleList } from '@core/models/schedule-list.interface';
+import { Store } from '@store/store';
 
 @Injectable()
 export class ScheduleService {
