@@ -2,13 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+// prettier-ignore
+import { WorkoutComponent, WorkoutFormComponent, WorkoutsComponent, WorkoutTypeComponent } from '@health/workouts';
 import { SharedModule } from '../shared/shared.module';
-// components
-import { WorkoutFormComponent } from './workout/workout-form/workout-form.component';
-// containers
-import { WorkoutComponent } from './workout/workout.component';
-import { WorkoutsComponent } from './workouts/workouts.component';
-import { WorkoutTypeComponent } from './workout/workout-form/workout-type/workout-type.component';
 
 export const ROUTES: Routes = [
     { path: '', component: WorkoutsComponent },

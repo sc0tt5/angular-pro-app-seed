@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { AuthService } from '@auth/shared/services/auth.service';
-import { ScheduleItem } from '@core/models/schedule-item.interface';
-import { ScheduleList } from '@core/models/schedule-list.interface';
+import { AuthService } from '@auth/shared/services';
+import { ScheduleItem } from '@core/models';
+import { ScheduleList } from '@core/models';
 import { Store } from '@store/store';
 
 @Injectable()

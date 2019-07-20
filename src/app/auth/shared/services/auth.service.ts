@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { tap } from 'rxjs/operators';
-import { User } from '@core/models/user.interface';
+import { User } from '@core/models';
 import { Store } from '@store/store';
 
 @Injectable()

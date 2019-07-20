@@ -1,9 +1,9 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged, pluck } from 'rxjs/operators';
-import { User } from '@auth/shared/services/auth.service';
-import { Meal } from '@health/shared/services/meals.service';
-import { ScheduleItem } from '@health/shared/services/schedule.service';
-import { Workout } from '@health/shared/services/workouts.service';
+import { Meal } from '@core/models';
+import { ScheduleItem } from '@core/models';
+import { User } from '@core/models';
+import { Workout } from '@core/models';
 
 export interface State {
     user: User;

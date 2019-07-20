@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable, of } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
-import { AuthService } from '@auth/shared/services/auth.service';
-import { Workout } from '@core/models/workout.interface';
+import { AuthService } from '@auth/shared/services';
+import { Workout } from '@core/models';
 import { Store } from '@store/store';
 
 @Injectable()

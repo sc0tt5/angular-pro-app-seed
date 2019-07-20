@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { User } from '@auth/shared/services/auth.service';
+import { User } from '@core/models';
 
 // stateless component (typically will have ChangeDetectionStrategy.OnPush)
 @Component({

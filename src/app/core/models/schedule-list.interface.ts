@@ -1,4 +1,4 @@
-import { ScheduleItem } from '@core/models/schedule-item.interface';
+import { ScheduleItem } from '@core/models';
 
 export interface ScheduleList {
     morning?: ScheduleItem;

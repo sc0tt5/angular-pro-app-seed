@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { ScheduleItem } from '@health/shared/services/schedule.service';
+import { ScheduleItem } from '@core/models';
 
 // stateless component (presentational component)
 @Component({

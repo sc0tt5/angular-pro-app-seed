@@ -1,5 +1,5 @@
-import { Meal } from '@core/models/meal.interface';
-import { Workout } from '@core/models/workout.interface';
+import { Meal } from '@core/models';
+import { Workout } from '@core/models';
 
 export interface ScheduleItem {
     meals: Meal[];

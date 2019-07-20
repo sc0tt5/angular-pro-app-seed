@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { Workout } from '@core/models';
 import { Store } from '@store/store';
-import { Workout, WorkoutsService } from '../../shared/services/workouts.service';
+import { WorkoutsService } from '@health/shared/services';
 
 @Component({
     selector: 'health-workouts',

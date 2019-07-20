@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { Meal } from '@core/models';
 import { Store } from '@store/store';
-import { Meal, MealsService } from '../../shared/services/meals.service';
+import { MealsService } from '@health/shared/services';
 
 // container component (smart component)
 @Component({

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
-import { ScheduleItem, ScheduleList } from '@health/shared/services/schedule.service';
+import { ScheduleItem } from '@core/models';
+import { ScheduleList } from '@core/models';
 
 // stateless component (presentational component)
 @Component({
