@@ -7,36 +7,7 @@ import { switchMap } from 'rxjs/operators';
 @Component({
     selector: 'health-workout',
     styleUrls: ['workout.component.scss'],
-    template: `
-        <div class="workout">
-            <div class="workout__title">
-                <h1>
-                    <img src="/assets/img/workout.svg" />
-                    <span *ngIf="workout$ | async as workout; else title">
-                        {{ workout.name ? 'Edit' : 'Create' }} workout
-                    </span>
-                    <ng-template #title>
-                        Loading...
-                    </ng-template>
-                </h1>
-            </div>
-            <div *ngIf="workout$ | async as workout; else loading">
-                <health-workout-form
-                    [workout]="workout"
-                    (create)="addWorkout($event)"
-                    (update)="updateWorkout($event)"
-                    (remove)="removeWorkout($event)"
-                >
-                </health-workout-form>
-            </div>
-            <ng-template #loading>
-                <div class="message">
-                    <img src="/assets/img/loading.svg" />
-                    Fetching workout...
-                </div>
-            </ng-template>
-        </div>
-    `
+    templateUrl: './workout.component.html'
 })
 export class WorkoutComponent implements OnInit, OnDestroy {
     workout$: Observable<Workout>;

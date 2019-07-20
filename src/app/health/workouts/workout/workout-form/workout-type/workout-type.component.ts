@@ -13,19 +13,7 @@ export const TYPE_CONTROL_ACCESSOR = {
     providers: [TYPE_CONTROL_ACCESSOR],
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['workout-type.component.scss'],
-    template: `
-        <div class="workout-type">
-            <div
-                class="workout-type__pane"
-                *ngFor="let selector of selectors"
-                [class.active]="selector === value"
-                (click)="setSelected(selector)"
-            >
-                <img src="/assets/img/{{ selector }}.svg" />
-                <p>{{ selector }}</p>
-            </div>
-        </div>
-    `
+    templateUrl: './workout-type.component.html'
 })
 export class WorkoutTypeComponent implements ControlValueAccessor {
     selectors = ['strength', 'endurance'];

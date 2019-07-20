@@ -5,28 +5,7 @@ import { ScheduleItem, ScheduleList } from 'src/app/health/shared/services/sched
 @Component({
     selector: 'health-schedule-calendar',
     styleUrls: ['schedule-calendar.component.scss'],
-    template: `
-        <div class="calendar">
-            <health-schedule-controls
-                [selected]="selectedDay"
-                (move)="onChange($event)"
-            ></health-schedule-controls>
-
-            <health-schedule-days
-                [selected]="selectedDayIndex"
-                (select)="selectDay($event)"
-            ></health-schedule-days>
-
-            <!-- this creates each section - morning, lunch, etc., with each sub-section for meal and workout -->
-            <health-schedule-section
-                *ngFor="let section of sections"
-                [name]="section.name"
-                [section]="getSection(section.key)"
-                (select)="selectSection($event, section.key)"
-            >
-            </health-schedule-section>
-        </div>
-    `
+    templateUrl: './schedule-calendar.component.html'
 })
 export class ScheduleCalendarComponent implements OnChanges {
     selectedDay: Date;

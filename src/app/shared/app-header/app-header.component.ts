@@ -6,16 +6,7 @@ import { User } from '../../auth/shared/services/auth.service';
     selector: 'app-header',
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['app-header.component.scss'],
-    template: `
-        <div class="app-header">
-            <div class="wrapper">
-                <img src="/assets/img/logo.svg" />
-                <div class="app-header__user-info" *ngIf="user?.authenticated">
-                    <span (click)="logoutUser()"></span>
-                </div>
-            </div>
-        </div>
-    `
+    templateUrl: './app-header.component.html'
 })
 export class AppHeaderComponent {
     @Input()

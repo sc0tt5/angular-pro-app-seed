@@ -9,26 +9,7 @@ import { Workout, WorkoutsService } from '../../shared/services/workouts.service
 @Component({
     selector: 'health-schedule',
     styleUrls: ['schedule.component.scss'],
-    template: `
-        <div class="schedule">
-            <health-schedule-calendar
-                [date]="date$ | async"
-                [items]="schedule$ | async"
-                (change)="changeDate($event)"
-                (select)="changeSection($event)"
-            >
-            </health-schedule-calendar>
-
-            <health-schedule-assign
-                *ngIf="open"
-                [section]="selected$ | async"
-                [list]="list$ | async"
-                (update)="assignItem($event)"
-                (cancel)="closeAssign()"
-            >
-            </health-schedule-assign>
-        </div>
-    `
+    templateUrl: './schedule.component.html'
 })
 export class ScheduleComponent implements OnInit, OnDestroy {
     open = false;

@@ -5,20 +5,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
     selector: 'health-schedule-days',
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['schedule-days.component.scss'],
-    template: `
-        <div class="days">
-            <button
-                type="button"
-                class="day"
-                *ngFor="let day of days; index as i"
-                (click)="selectDay(i)"
-            >
-                <span [class.active]="i === selected">
-                    {{ day }}
-                </span>
-            </button>
-        </div>
-    `
+    templateUrl: './schedule-days.component.html'
 })
 export class ScheduleDaysComponent {
     days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];

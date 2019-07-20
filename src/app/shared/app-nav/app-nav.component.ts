@@ -5,15 +5,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     selector: 'app-nav',
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['app-nav.component.scss'],
-    template: `
-        <div class="app-nav">
-            <div class="wrapper">
-                <a routerLink="schedule" routerLinkActive="active">Schedule</a>
-                <a routerLink="meals" routerLinkActive="active">Meals</a>
-                <a routerLink="workouts" routerLinkActive="active">Workouts</a>
-            </div>
-        </div>
-    `
+    templateUrl: './app-nav.component.html'
 })
 export class AppNavComponent {
     constructor() {}
