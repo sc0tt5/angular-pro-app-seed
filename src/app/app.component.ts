@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { Store } from 'store';
-import { AuthService, User } from './auth/shared/services/auth.service';
+import { Store } from '@store/store';
+import { AuthService, User } from '@auth/shared/services/auth.service';
 import { Router } from '@angular/router';
 
 // container component (smart component)

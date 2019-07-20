@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable, of } from 'rxjs';
 import { filter, map, tap } from 'rxjs/operators';
-import { AuthService } from 'src/app/auth/shared/services/auth.service';
-import { Store } from 'store';
+import { AuthService } from '@auth/shared/services/auth.service';
+import { Store } from '@store/store';
 
 export interface Meal {
     name: string;

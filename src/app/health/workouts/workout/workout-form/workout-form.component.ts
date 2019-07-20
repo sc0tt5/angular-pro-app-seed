@@ -1,7 +1,7 @@
 // prettier-ignore
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Workout } from 'src/app/health/shared/services/workouts.service';
+import { Workout } from '@health/shared/services/workouts.service';
 
 @Component({
     selector: 'health-workout-form',

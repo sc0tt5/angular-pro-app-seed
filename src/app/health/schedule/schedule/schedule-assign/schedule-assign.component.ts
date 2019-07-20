@@ -1,7 +1,7 @@
 // prettier-ignore
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Meal } from 'src/app/health/shared/services/meals.service';
-import { Workout } from 'src/app/health/shared/services/workouts.service';
+import { Meal } from '@health/shared/services/meals.service';
+import { Workout } from '@health/shared/services/workouts.service';
 
 @Component({
     selector: 'health-schedule-assign',

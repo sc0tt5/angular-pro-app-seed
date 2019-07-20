@@ -15,7 +15,12 @@
         "lib": ["es2018", "dom"],
         "noEmitHelpers": true,
         "paths": {
-            "store": ["src/app/store/store.ts"]
+            "@app/*": ["src/app/*"],
+            "@auth/*": ["src/app/auth/*"],
+            "@health/*": ["src/app/health/*"],
+            "@shared/*": ["src/app/shared/*"],
+            "@store/*": ["src/app/store/*"],
+            "@assets/*": ["src/assets/*"]
         },
         "pretty": true,
         "strictNullChecks": false,

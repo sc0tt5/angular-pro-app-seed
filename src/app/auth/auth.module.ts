@@ -8,7 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 // shared modules
 import { SharedModule } from './shared/shared.module';
 // firebase config (private)
-import { firebaseConfig } from '../../assets/firebaseconfig'; // see FirebaseAppConfig
+import { firebaseConfig } from '@assets/firebaseconfig'; // see FirebaseAppConfig
 
 export const ROUTES: Routes = [
     {

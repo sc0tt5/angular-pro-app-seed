@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { ScheduleList } from 'src/app/health/shared/services/schedule.service';
-import { Store } from 'store';
-import { AuthService } from './../../../auth/shared/services/auth.service';
+import { ScheduleList } from '@health/shared/services/schedule.service';
+import { Store } from '@store/store';
+import { AuthService } from '@auth/shared/services/auth.service';
 import { Meal } from './meals.service';
 import { Workout } from './workouts.service';
 

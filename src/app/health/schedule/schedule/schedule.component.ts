@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
-import { Store } from 'store';
+import { Store } from '@store/store';
 import { Meal, MealsService } from '../../shared/services/meals.service';
 import { ScheduleItem, ScheduleService } from '../../shared/services/schedule.service';
 import { Workout, WorkoutsService } from '../../shared/services/workouts.service';
