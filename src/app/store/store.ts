@@ -1,22 +1,8 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged, pluck } from 'rxjs/operators';
-import { Meal } from '@core/models';
-import { ScheduleItem } from '@core/models';
-import { User } from '@core/models';
-import { Workout } from '@core/models';
+import { AppState } from '@core/models';
 
-export interface State {
-    user: User;
-    meals: Meal[];
-    selected: any;
-    list: any;
-    schedule: ScheduleItem[];
-    date: Date;
-    workouts: Workout[];
-    [key: string]: any;
-}
-
-const state: State = {
+const state: AppState = {
     user: undefined,
     meals: undefined,
     selected: undefined,
@@ -27,7 +13,7 @@ const state: State = {
 };
 
 export class Store {
-    private subject = new BehaviorSubject<State>(state);
+    private subject = new BehaviorSubject<AppState>(state);
     private store = this.subject.asObservable().pipe(distinctUntilChanged());
 
     get value() {
